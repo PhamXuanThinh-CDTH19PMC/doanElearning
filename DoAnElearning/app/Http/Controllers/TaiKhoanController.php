@@ -13,6 +13,7 @@ class TaiKhoanController extends Controller
         return view('dang-nhap');
     }
     public function xuLyDangNhap(Request $request){
+
        if(Auth::attempt(['username'=>$request->ten_tai_khoan,'password'=>$request->mat_khau])){
            $user=Auth::user();
            return redirect()->route('index');
@@ -25,4 +26,5 @@ class TaiKhoanController extends Controller
         Auth::logout();
         return redirect()->route('dang-nhap');
     }
+
 }
